@@ -7,7 +7,7 @@ REPO_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo "Setting up environment variable FOCUS_REPO_DIR to $REPO_DIR"
 
 # Add the environment variable to the appropriate shell configuration file (.bashrc or .zshrc)
-if [ -n "$ZSH_VERSION" ]; then
+if [ ! "$ZSH_VERSION" ]; then
     SHELL_CONFIG="$HOME/.zshrc"
 elif [ -n "$BASH_VERSION" ]; then
     SHELL_CONFIG="$HOME/.bashrc"
