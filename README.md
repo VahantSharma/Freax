@@ -35,55 +35,77 @@ First, you'll want to bring **Freax** to your local machine! Open your terminal 
 ```bash
 git clone https://github.com/VahantSharma/Freax.git
 cd Freax
+ls
 ```
 
-**NOTE:** You should see a file named focus.sh<br>
+**NOTE:** You should see a folder named FreaxScripts and Readme.md file<br>
 
-### Step 2: Giving Permissions to the Script
+### Step 2: Navigate to FreaxScripts
+```bash
+cd FreaxScripts
+```
+
+### Step 3: Giving Permissions to the Scripts
 
 ```bash
-chmod +x focus.sh
+chmod +x focus.sh get_folder.sh
 ```
 
 ### Step 3: Setting up the Aliases(shortcuts)
 
 To make using Freax even easier,set up some aliases so you can control your study sessions with just a few keystrokes
 
-- Open your .zsrc or .bashrc file in your favorite text editor. For example:
+- Run the get_folder.sh file which in turn setup the aliases in .bashrc or .zshrc file
 
 ```bash
-nano ~/.zsrc
+./get_folder.sh
 ```
 
-- Add the following lines to create your custom aliases:
+### Step 4: Crontab Setup
+- To automate the daily and weekly resets, make sure cron is installed and running on your system.
+- This will install, open cron and setup daily and weekly reset
+```bash
+sudo apt-get install cron
+systemctl status cron
+vim crontab -e
+# Daily reset at 12 AM
+0 0 * * * $FOCUS_REPO_DIR/focus.sh reset
+
+# Weekly reset on Sunday at 12 AM
+0 0 * * 0 $FOCUS_REPO_DIR/focus.sh reset_weekly
+```
+
+### Step 5: Graph Plotting
+To plot graphs of your study data, you need to install gnuplot:
 
 ```bash
-# Freax Productivity Aliases
-alias focuson="$HOME/Myscripts/Timer/focus.sh start"          # Start your focus session
-alias focusoff="$HOME/Myscripts/Timer/focus.sh stop"          # Stop your focus session
-alias focuspause="$HOME/Myscripts/Timer/focus.sh pause"       # Pause your focus session
-alias focusresume="$HOME/Myscripts/Timer/focus.sh resume"     # Resume your focus session
-alias focusreset="$HOME/Myscripts/Timer/focus.sh reset"       # Reset your focus session
-alias focusweeklyreset="$HOME/Myscripts/Timer/focus.sh reset_weekly" # Reset weekly data
-alias daily_summary="$HOME/Myscripts/Timer/focus.sh daily_summary" # Get daily summary
-alias weekly_summary="$HOME/Myscripts/Timer/focus.sh weekly_summary" # Get weekly summary
-alias focusfilereset="$HOME/Myscripts/Timer/focus.sh reset_log" # Reset the log file
-
+sudo apt install gnuplot
+gnuplot -v
+exit
 ```
-
-### Step 4:Source Your Changes
-
-Source your .zsrc or .bashrc file for aliases to come into effect:
-
-```bash
-source ~/.zsrc
-```
+**NOTE:** GNUPLOT version should be visible after this
 
 #### Mission accomplished:
 
 Now you're all set to start using Freax and maximize your productivity! 🎉✨\*\*
 
 ---
+
+## Usage
+
+Now that you have **Freax** installed, let's get started with tracking your productivity! Here are some simple commands to manage your study sessions:
+
+### Command Descriptions
+
+| Command           | Description                                                                                                                                       |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| **focuson**       | - Starts the timer <br> - Prompts for a work subject <br> - Gives autosuggestions if studied in the last 7 days <br> - Provides notification. |
+| **focusoff**      | - Stops the timer <br> - Shows time spent on the topic <br> - Prepares the daily summary.|
+| **focuspause**    | Pauses the current study session.                                                                                                                  |
+| **focusresume**   | Resumes the paused study session.                                                                                                                  |
+| **daily_summary** | - Displays total time spent <br> - Shows hours remaining in your daily target <br> - Provides a productivity graph (viewable in minutes or hours). |
+| **focusreset**    | Clears the daily log by removing all entries for the day.                                                                                          |
+| **focusweeklyreset** | Clears all data from the weekly log.                                                                                                            |
 
 ## Features:
 
@@ -106,24 +128,6 @@ Now you're all set to start using Freax and maximize your productivity! 🎉✨\
 - **Subject Autocompletion**: Save time while logging sessions with intelligent suggestions for subjects.
 - **Real-Time Notifications**: Receive notifications to celebrate your achievements and stay motivated.
 - **Industry-Grade Design**: Built with professional standards, ensuring reliability and ease of use.
-
----
-
-## Usage
-
-Now that you have **Freax** installed, let's get started with tracking your productivity! Here are some simple commands to manage your study sessions:
-
-| **Command**        | **Usage**                                              |
-| ------------------ | ------------------------------------------------------ |
-| `focuson`          | Start a new study session.                             |
-| `focusoff`         | Stop your current study session.                       |
-| `focuspause`       | Pause your current study session.                      |
-| `focusresume`      | Resume your paused session.                            |
-| `daily_summary`    | Get a detailed summary of your study time for the day. |
-| `weekly_summary`   | See your productivity over the last week.              |
-| `focusreset`       | Reset your current focus session.                      |
-| `focusweeklyreset` | Reset your weekly summary.                             |
-| `focusfilereset`   | Clear the study time log.                              |
 
 ---
 
