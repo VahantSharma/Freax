@@ -56,10 +56,24 @@ chmod +x focus.sh get_folder.sh
 To make using Freax even easier,set up some aliases so you can control your study sessions with just a few keystrokes
 
 - Run the get_folder.sh file which in turn setup the aliases in .bashrc or .zshrc file
-
-```bash
-./get_folder.sh
-```
+  
+  - For those using Bash
+    ```bash
+    bash ./get_folder.sh
+    ```
+  - For those using ZSH
+    ```bash
+    zsh ./get_folder.sh
+    ```  
+- Source these changes to use them immediately
+    - For those using Bash
+    ```bash 
+    source .zshrc
+    ```
+   - For those using ZSH
+    ```bash
+    source .bashrc
+    ```
 
 ### Step 4: Crontab Setup
 - To automate the daily and weekly resets, make sure cron is installed and running on your system.
@@ -209,3 +223,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Have questions or feedback? Open an issue in the repository! Your input is essential for continuous improvement! 🚀
 
 ---
+    
