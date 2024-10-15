@@ -49,7 +49,8 @@ fi
 
 # Inform the user
 echo "Environment variable FOCUS_REPO_DIR and aliases have been added to $SHELL_CONFIG."
-echo "Please run 'source $SHELL_CONFIG' to apply the changes immediately."
 
 echo "Setup complete! FOCUS_REPO_DIR and the aliases are now available for use."
+
+echo "Please run 'source $SHELL_CONFIG' to apply the changes immediately."
 
