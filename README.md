@@ -68,11 +68,11 @@ To make using Freax even easier,set up some aliases so you can control your stud
 - Source these changes to use them immediately
     - For those using Bash
     ```bash 
-    source .zshrc
+    source .bashrc
     ```
    - For those using ZSH
     ```bash
-    source .bashrc
+    source .zshrc
     ```
 
 ### Step 4: Crontab Setup
